@@ -1,0 +1,32 @@
+//Database variables
+$sql_host="cmslamp14.aut.ac.nz";
+$sql_user="frq8071";
+$sql_pass="R1ord4n!@#";
+$sql_db="frq8071";
+$sql_tble="PostStatus";
+
+//Database connection
+$conn = mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
+
+
+//Selecting Data from table to be displayed
+SELECT * FROM StatusPosts ORDER BY statuscode ASC;
+
+
+//Insert input variables into table
+INSERT INTO StatusPosts (statuscode, status, share, date, permissions)
+		VALUES ('$statuscode', '$status', '$share', '$date', '$permissions');
+		
+		
+//Create new table
+CREATE TABLE StatusPosts (
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		statuscode VARCHAR(10) NOT NULL,
+		status VARCHAR(255) NOT NULL,
+		share VARCHAR(50) NOT NULL,
+		date DATE NOT NULL,
+		permissions INT(1) NOT NULL
+		);
+		
+//Drop table
+DROP TABLE IF EXISTS StatusPosts;
